@@ -1,0 +1,5 @@
+$(function() {
+
+    $("#education").addClass("ativo");
+
+});

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="viewModel">
+    <div id="modal-full" class="uk-modal-full" uk-modal>
+        <div class="uk-modal-dialog">
+            <button uk-tooltip="title: Fechar modelo; pos: top-left" class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+            <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+                <div class="uk-background-cover modal-model-image" uk-height-viewport></div>
+                <div class="uk-padding-large">
+                    <h2 class="modal-model-title"></h2>
+                    <p class="modal-model-description"></p>
+                    <hr>
+                    <h5 class="modal-model-user uk-align-right"></h5>
+                    <h5 class="modal-model-date uk-align-left"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div th:fragment="deleteModel">
+    <div id="modal-delete" uk-modal>
+        <div class="uk-modal-dialog">
+            <button uk-tooltip="title: Fechar modelo; pos: top-left" class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Model deletion</h2>
+            </div>
+            <div class="uk-modal-body">
+                <p>Are you sure you want to delete the model "<b class="modal-model-title"></b>"? This action is
+                    permanent and can not be undone.</p>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <form class="uk-flex uk-flex-between" th:action="@{/restricted/deleteModel}" method="POST">
+                    <input type="hidden" class="modal-model-id" name="modelId"/>
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <button class="uk-button ar-button-default" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</html>

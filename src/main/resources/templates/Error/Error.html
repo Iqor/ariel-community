@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="Layout/Layout">
+
+
+<head>
+    <link th:href="@{/css/error.css}" rel="stylesheet"/>
+</head>
+
+<div layout:fragment="principal">
+
+    <div class="uk-inline">
+
+        <div class="uk-position-center uk-position-fixed">
+            <h1>Sorry for the happened,</h1>
+            <h2>you must have accessed a page that you don't have access or something went wrong.</h2>
+            <h3>Please contact the support with a print of this page.</h3>
+
+            <h4 th:text="${errorStatus}"></h4>
+            <!--<h4 th:text="${errorMessage}"></h4>-->
+            <!--<h4 th:text="${errorCause}"></h4>-->
+
+        </div>
+
+    </div>
+
+</div>
+</html>
+

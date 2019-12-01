@@ -1,0 +1,132 @@
+
+html{
+    background-color: #e6e6e6;
+}
+
+p{
+    color: #000;
+    font-size: 18px;
+}
+
+/*COR DA NAVBAR*/
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background:#212529;
+}
+
+/*BOTOES DO MENU*/
+.uk-button-default{
+    background-color: transparent;
+    color: #e5e5e5;
+    border: 1px solid #e5e5e5;
+}
+
+/*BOTOES DO MENU HOVER*/
+.uk-button-default:hover, .uk-button-default:focus, .uk-button-default:active{
+    background-color: #e5e5e5;
+    color: #333;
+    border: 1px solid #e5e5e5;
+}
+
+.ar-button-default{
+    background-color: #333;
+    color: #e5e5e5;
+    border: 1px solid #e5e5e5;
+}
+
+.ar-button-default:hover, .ar-button-default:active, .ar-button-default:focus{
+    background-color: #e5e5e5;
+    color: #333;
+    border: 1px solid #333;
+}
+
+.ar-button-primary{
+    background-color: #2DC84D;
+    color: #000;
+    border: 1px solid #2DC84D;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.ar-button-primary:hover, .ar-button-primary:active, .ar-button-primary:focus{
+    background-color: #44d561;
+    color: #000;
+    border: 1px solid #44d561;
+}
+
+
+/*LINKS DO MENU*/
+.uk-navbar-nav > li > a {
+    color: #b3b3b3;
+}
+
+/*LINKS DO MENU HOVER*/
+.uk-navbar-nav > li > a:hover {
+    color: #d9d9d9;
+}
+
+/*LINKS DO MENU ACTIVE ABERTO*/
+.uk-navbar-nav > li:hover > a, .uk-navbar-nav > li > a.uk-open, .uk-navbar-nav > li > a:focus {
+    color: #d9d9d9;
+}
+
+/*NOME DO MENU ARIEL*/
+.uk-logo{
+    color:#EFEFEF;
+}
+
+/*NOME DO MENU ARIEL HOVER*/
+.uk-logo:hover{
+    color:#EFEFEF;
+}
+
+/*COR DA BORDA DA BARRA DE PESQUISA*/
+.uk-search-input {
+    border: 1px solid #FFFFFF;   
+}
+
+/*COR DA BARRA DE PESQUISA*/
+.uk-search-large .uk-search-input {
+    background: #FFFFFF;
+}
+
+.errorMessage{
+    color: #f0506e;
+}
+
+.uk-placeholder{
+    background-color: #fff;
+    border: 1px dashed #999999;
+}
+
+.ativo{
+    border-bottom: 5px solid #2DC84D;
+}
+
+#submitSearch, #notification{
+    background-color: #0b0d0e;
+}
+
+.searchIcon, .notificationIcon{
+    color:#FFF;
+}
+
+.uk-card:hover, .uk-card:focus, .uk-card:active{
+    border: 2px solid #2DC84D;
+}
+
+[role="button"]:hover,
+[role="button"]:focus,
+[role="button"]:active {
+
+    outline: none;
+}
+
+#loginHere{
+    color: #276e37;
+}
+
+
+.uk-close{
+    color: red !important;
+}
+

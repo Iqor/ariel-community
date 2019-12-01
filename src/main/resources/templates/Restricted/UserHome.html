@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="Layout/Layout">
+
+
+<head>
+    <script th:src="@{/js/UserHome/UserHome.js}"></script>
+</head>
+
+
+<div layout:fragment="principal">
+
+    <div class="uk-margin-top uk-align-center uk-width-1-1@m uk-box-shadow-large uk-padding uk-margin-large">
+
+        <div class="uk-text-center">
+            <h2 class="uk-heading-line uk-text-center"><span>My models</span></h2>
+        </div>
+
+        <div th:replace="~{Layout/Message :: message}" th:remove="tag"></div>
+
+        <div class="uk-child-width-1-4@m uk-grid-small uk-margin-large-right uk-margin-large-left uk-margin uk-margin-medium-top"
+             uk-grid="">
+
+            <div th:if="${modelList}" th:each="model : ${modelList}">
+                <div class="uk-card uk-card-default">
+
+                    <div class="uk-card-media-top">
+                        <img th:src="@{${model.filePath}}"/>
+                    </div>
+
+                    <div class="uk-card-body">
+                        <h5 class="uk-card-title" th:text="${model.title}"></h5>
+                        <p class="uk-text-truncate" th:text="${model.description}" value="description"/></p>
+                    </div>
+
+                    <div class="uk-card-footer uk-flex uk-flex-around">
+                        <a th:href="@{'/restricted/editModel/' + ${model.id}}" uk-tooltip="Edit this model" uk-icon="pencil"></a>
+                        <a class="delete" th:attr="data-title=${model.title}, data-id=${model.id}" uk-tooltip="Delete this model" uk-icon="trash"></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div th:replace="~{Modal/Modal :: deleteModel}" th:remove="tag"></div>
+</div>
+</html>

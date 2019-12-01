@@ -1,0 +1,5 @@
+$(function() {
+
+    $("#about").addClass("ativo");
+
+});

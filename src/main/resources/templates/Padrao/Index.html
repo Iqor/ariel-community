@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="Layout/Layout"
+      lang="pt-BR"
+>
+
+
+<head>
+    <script th:src="@{/js/ViewModel/ViewModel.js}"></script>
+</head>
+
+<div layout:fragment="principal">
+
+    <div class="uk-child-width-1-4@m uk-grid-small uk-margin-large-right uk-margin-large-left uk-margin uk-margin-medium-top"
+         uk-grid="">
+
+        <div th:if="${modelList}" th:each="model : ${modelList}">
+            <div class="uk-card uk-card-default uk-card-small card"
+                 th:attr="data-url=${model.filePath},data-title=${model.title},data-description=${model.description},
+                 data-date=${model.modelDate}, data-user=${model.user.name}"
+                 tabindex="0" role="button">
+                <div class="uk-card-media-top">
+                    <img th:src="@{${model.filePath}}" th:attr="alt=${model.title}" />
+                </div>
+
+                <div class="uk-card-body">
+                    <h5 class="uk-card-title" th:text="${model.title}"></h5>
+                    <p class="uk-text-truncate" th:text="${model.description}" value="description"/></p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div th:if="${#lists.isEmpty(modelList)}" class="uk-width-1-1">
+            <h2 class="uk-text-center">Nenhum resultado encontrado</h2>
+        </div>
+
+
+
+    </div>
+
+
+    <div>
+        <!--<button class="uk-button uk-button-secondary uk-align-center">Show me more</button>-->
+    </div>
+
+
+    <div th:replace="~{Modal/Modal :: viewModel}" th:remove="tag"></div>
+
+</div>
+
+</html>

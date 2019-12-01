@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="Layout/Layout">
+
+
+<head>
+    <script th:src="@{/js/NewModel/NewModel.js}"></script>
+</head>
+
+
+<div layout:fragment="principal">
+
+    <div class="uk-margin-top uk-align-center uk-width-1-2@m uk-box-shadow-xlarge uk-padding">
+
+        <div class="uk-text-center">
+            <h2 class="uk-heading-line uk-text-center"><span>New model</span></h2>
+        </div>
+
+        <div th:replace="~{Layout/Message :: message}" th:remove="tag"></div>
+
+        <form th:action="@{/restricted/newModel}"
+              class="uk-grid-small uk-margin-small-left uk-margin-small-right uk-child-width-1-2@m"
+              uk-grid="" enctype="multipart/form-data" method="POST" id="modelInsert" th:object="${model}">
+
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="uk-width-1-1">
+                <label class="uk-form-label" for="title">Title</label>
+                <span class="uk-margin-small-left ar-info" uk-icon="info"
+                      uk-tooltip="This is the place where you should put the title of your model"></span>
+                <input id="title" class="uk-input" maxlength="150" type="text" th:field="*{title}"
+                       cssErrorClass="uk-form-danger"/>
+                <span class="uk-label uk-label-danger" th:if="${#fields.hasErrors('title')}"
+                      th:errors="*{title}"></span>
+            </div>
+
+            <div class="uk-width-1-1">
+                <label class="uk-form-label" for="description">Description</label>
+                <span class="uk-margin-small-left ar-info" uk-icon="info" uk-tooltip="
+                    Feel free to describe in detail your model, maybe if it is well written you win more votes"></span>
+                <textarea id="description" maxlength="1000" class="uk-textarea" rows="5"
+                          th:field="*{description}"
+                          cssErrorClass="uk-form-danger"></textarea>
+                <span class="uk-label uk-label-danger" th:if="${#fields.hasErrors('description')}"
+                      th:errors="*{description}"></span>
+            </div>
+
+
+            <div uk-form-custom="target: true" class="uk-width-1-1" id="uploadBox">
+                <label class="uk-form-label" for="file">Put the image of your model here, it should be smaller than 5MB
+                    and be in .PNG or .JPG</label>
+                <input class="uk-width-1-1" type="file" name="file" cssErrorClass="uk-form-danger" id="file"
+                       th:field="*{file}"/>
+                <input class="uk-input uk-width-1-1" type="text"
+                       placeholder="Select to choose the image or drag the image here" disabled>
+
+                <span class="uk-label uk-label-danger" th:if="${#fields.hasErrors('file')}" th:errors="*{file}"></span>
+            </div>
+
+
+            <div class="uk-width-1-1 uk-grid" id="currentImageBox">
+
+                <div class="uk-width-1-2">
+                    <label><b>Current Image</b></label>
+                    <img th:src="@{${model.filePath}}"/>
+                </div>
+
+                <div class="uk-width-1-2 uk-flex uk-flex-middle uk-flex-center">
+                    <a id="changeImage" class="ar-button-default uk-button">Change image</a>
+                </div>
+
+            </div>
+
+            <div class="uk-width-1-1">
+                <input type="submit" class="uk-button ar-button-default uk-align-center uk-width-medium"
+                       value="New model" id="newModelSubmit"/>
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+</html>

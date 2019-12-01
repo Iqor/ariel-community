@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="Layout/Layout" lang="pt-BR">
+
+
+<head>
+    <script th:src="@{/js/Login/SignIn.js}"></script>
+</head>
+
+
+
+<div layout:fragment="principal">
+
+
+    <div class="uk-margin-top uk-align-center uk-width-1-2@m uk-box-shadow-xlarge uk-padding">
+
+        <div class="uk-text-center">
+            <h2 class="uk-heading-line uk-text-center"><span>Sign in to ARIEL</span></h2>
+        </div>
+
+        <div th:replace="~{Layout/Message :: message}" th:remove="tag"></div>
+
+        <form th:action="@{/signIn}" class="uk-grid-small uk-margin-small-left uk-margin-small-right uk-child-width-1-2@m" uk-grid="" method="POST">
+
+            <div>
+                <label class="uk-form-label" for="username">Username</label>
+                <input class="uk-input" type="text" name="username" cssErrorClass="uk-form-danger" id="username"/>
+            </div>
+
+            <div>
+                <label class="uk-form-label" for="password">Password</label>
+                <input class="uk-input" type="password" name="password" cssErrorClass="uk-form-danger" id="password"/>
+            </div>
+
+            <div class="uk-width-1-1">
+                <input type="submit" class="uk-button ar-button-primary uk-align-center uk-width-medium" value="Sign In" id="signInSubmit" />
+            </div>
+
+            <div class="uk-width-1-1 uk-text-center">
+                <span>No account yet? <a id="loginHere" sec:authorize="isAnonymous()" th:href="@{/signUp}">Sign up here!</a></span>
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+</html>

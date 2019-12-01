@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>ARIEL: A ReposItory Of software ecosystEm modeLs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <link th:href="@{/libs/uikit-3.0.0/css/uikit.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link th:href="@{/css/colors.css}" rel="stylesheet"/>
+    <link th:href="@{/css/acessibilidade.css}" rel="stylesheet"/>
+
+    <script src="https://kit.fontawesome.com/3f76ffd027.js"></script>
+
+    <script th:src="@{/libs/uikit-3.0.0/js/uikit.min.js}"></script>
+    <script th:src="@{/libs/uikit-3.0.0/js/uikit-icons.min.js}"></script>
+    <script th:src="@{/libs/jQuery/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/Init.js}"></script>
+
+
+</head>
+
+<body>
+
+<!--/* MENU DAS PÁGINAS */-->
+<div th:replace="~{Layout/Menu :: menu}" th:remove="tag"></div>
+
+<!--/* CONTEÚDO DAS PÁGINAS */-->
+<div layout:fragment="principal" id="main-content"></div>
+
+
+<footer th:replace="~{Layout/Footer :: footer}"></footer>
+
+</body>
+
+<script th:src="@{/js/Acessibilidade.js}"></script>
+<script th:src="@{/js/Utils.js}"></script>
+
+
+</html>

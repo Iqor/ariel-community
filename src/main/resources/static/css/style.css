@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
+
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+#main-content {
+    flex: 1 0 auto;
+}
+.footer {
+    flex-shrink: 0;
+}
+
+h1,h2,h3,h4,h5, p{
+    font-family: 'Noto Serif', serif;
+}
+
+.uk-logo{
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.errorMessage, .actionMessage {
+    font-size: 14px;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+.card, .ar-info, #file{
+    cursor:pointer;
+}
+
+.uk-card-body{
+    max-height: 200px;
+}
+
+.uk-card-title{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.uk-card-body p{
+    font-size: 15px;
+}
+
+.modal-model-image{
+    background-size: contain;
+}
+
+.uk-placeholder{
+    margin-bottom: 0;
+}
+
+#submitSearch, #notification{
+    text-decoration: none;
+}
+
+nav#menuAcessibilidade ul#listaAcessibilidade li a {
+    min-height: 48px;
+}
+
+.uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle{
+    min-height: 64px;
+}
+
+.uk-label-danger{
+    white-space: inherit !important;
+}
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:fragment="menu">
+
+
+    <nav class="uk-navbar-container" uk-navbar="mode: click" id="menuAcessibilidade">
+        <ul class="uk-navbar-nav uk-visible@m" id="listaAcessibilidade">
+            <li><a href="#main-content" accesskey="1">Skip to main content [Alt + 1]</a></li>
+            <li><a href="#menuPrincipal" accesskey="2">Top of menu [Alt + 2]</a></li>
+            <li><a href="#" data-acessibilidade=false id="altocontraste">HIGH CONTRAST OFF</a></li>
+        </ul>
+    </nav>
+
+
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" id="menuPrincipal">
+        <nav class="uk-navbar-container" uk-navbar="mode: click">
+
+            <div class="uk-navbar-left">
+
+                <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-usage"></a>
+
+                <a class="uk-logo uk-navbar-item" th:href="@{/}">ARIEL</a>
+
+                <div class="uk-navbar-item">
+                    <form class="uk-width-large@m uk-grid-small" uk-grid th:action="@{/customSearch}" method="GET"
+                          id="searchForm">
+                        <div class="uk-form-controls uk-width-expand">
+                            <input class="uk-input" type="text" placeholder="Type something to search for..."
+                                   aria-label="Search Field"
+                                   name="searchParameter" id="searchParameter">
+                        </div>
+
+                        <div class="uk-form-controls">
+                            <a id="submitSearch" class="uk-border-circle uk-icon-button"><i
+                                    class="fas fa-search searchIcon fa-lg"></i></a>
+                        </div>
+                    </form>
+                </div>
+
+                <ul class="uk-navbar-nav uk-visible@m">
+
+                    <li id="home"><a th:href="@{/}">HOME</a></li>
+
+                    <li id="about"><a class="" th:href="@{/about}">ABOUT</a></li>
+
+                    <li sec:authorize-url="/restricted" id="myModels">
+                        <a th:href="@{/restricted/userHome}">MY MODELS</a>
+                    </li>
+                    <li sec:authorize-url="/restricted" id="newModel">
+                        <a th:href="@{/restricted/newModel}">NEW MODEL</a>
+                    </li>
+
+                    <li id="education"><a th:href="@{/education}">EDUCATION</a></li>
+
+
+                </ul>
+
+            </div>
+
+            <div class="uk-navbar-center">
+
+            </div>
+
+            <div class="uk-navbar-right">
+
+
+                <div class="uk-navbar-item" sec:authorize="isAuthenticated()">
+                    <div class="uk-form-controls">
+                        <a id="notification" class="uk-border-circle uk-icon-button"><i
+                                class="fas fa-bell notificationIcon fa-lg"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="uk-navbar-nav">
+                    <a sec:authorize="isAnonymous()" th:href="@{/signIn}"
+                       class="uk-button uk-button-default uk-margin-small-right uk-visible@m">Sign in</a>
+
+                    <a sec:authorize="isAnonymous()" th:href="@{/signUp}"
+                       class="uk-button uk-button-default uk-margin-large-right uk-visible@m">Sign up</a>
+
+                    <a sec:authorize="isAuthenticated()" th:href="@{/logout}"
+                       class="uk-button uk-button-default uk-margin-large-right uk-visible@m">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+            <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a class="" th:href="@{/about}">About</a></li>
+                <li sec:authorize-url="/restricted"><a th:href="@{/restricted/userHome}">My models</a></li>
+                <li sec:authorize-url="/restricted"><a th:href="@{/restricted/newModel}">New model</a></li>
+                <li><a class="" th:href="@{/education}">Education</a></li>
+
+                <li class="uk-nav-divider"></li>
+
+                <li><a sec:authorize="isAnonymous()" th:href="@{/signIn}">Sign in</a></li>
+                <li><a sec:authorize="isAnonymous()" th:href="@{/signUp}">Sign up</a></li>
+                <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></li>
+
+                <li class="uk-nav-divider"></li>
+                <li><a href="#">About</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>
+</html>
