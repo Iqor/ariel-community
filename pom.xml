@@ -32,7 +32,7 @@
 		<thymleaf.extras.version>3.0.4.RELEASE</thymleaf.extras.version>
 		<thymleaf.dialect.version>2.3.0</thymleaf.dialect.version>
 		<postgresql.version>42.2.5</postgresql.version>
-		<hibernate.version>5.4.2.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<log4j.version>2.11.1</log4j.version>
 		<maven.war.plugin.version>3.2.2</maven.war.plugin.version>
